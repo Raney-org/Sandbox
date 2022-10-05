@@ -11,7 +11,8 @@
   ansible.builtin.include_role:
     name: mongodb
   vars:
-    mongodb_name: "{{ rocketchat_name }}_mongo"
+    mongodb_name: "{{ rocketchat_name }}_mongo" # Remove when instance support merged into Saltbox
+    mongodb_instances: ["{{ rocketchat_name }}_mongo"]
     mongodb_docker_commands: "mongod --oplogSize 128 --replSet rs0"
     mongodb_docker_env_db: "{{ rocketchat_name }}"
     mongodb_docker_image_tag: "4.4"
