@@ -26,10 +26,10 @@
 
 - name: MariaDB | Create gitea database
   community.mysql.mysql_db:
-    name: "gitea"
-    login_host: "mariadb"
-    login_user: "root"
-    login_password: "{{ mariadb_docker_envs_mysql_root_password }}"
+    name: "{{ gitea_name }}"
+    login_host: "{{ gitea_name }}_mariadb"
+    login_user: "{{ mariadb_docker_env_user }}"
+    login_password: "{{ mariadb_docker_env_password }}"
     state: present
 
 - name: Remove existing Docker container
