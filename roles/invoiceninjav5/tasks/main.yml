@@ -19,10 +19,10 @@
 
 - name: MariaDB | Create ninja database
   community.mysql.mysql_db:
-    name: "invoiceninjav5db"
-    login_host: "mariadb"
-    login_user: "root"
-    login_password: "{{ mariadb_docker_envs_mysql_root_password }}"
+    name: "{{ invoiceninjav5_name }}"
+    login_host: "{{ invoiceninjav5_name }}_mariadb"
+    login_user: "{{ mariadb_docker_env_user }}"
+    login_password: "{{ mariadb_docker_env_password }}"
     state: present
 
 - name: Permissions | Create invoiceninja group
