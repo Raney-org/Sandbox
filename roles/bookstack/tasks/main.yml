@@ -26,10 +26,10 @@
 
 - name: MariaDB | Create bookstackapp database
   community.mysql.mysql_db:
-    name: "bookstackapp"
-    login_host: "mariadb"
-    login_user: "root"
-    login_password: "{{ mariadb_docker_envs_mysql_root_password }}"
+    name: "{{ bookstack_name }}"
+    login_host: "{{ bookstack_name }}_mariadb"
+    login_user: "{{ mariadb_docker_env_user }}"
+    login_password: "{{ mariadb_docker_env_password }}"
     state: present
 
 - name: Import Default MariaDB variables
